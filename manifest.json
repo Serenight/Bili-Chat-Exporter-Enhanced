@@ -1,0 +1,61 @@
+{
+  "icons": {
+    "16": "icon16.plasmo.60403714.png",
+    "32": "icon32.plasmo.8e850565.png",
+    "48": "icon48.plasmo.37989d43.png",
+    "64": "icon64.plasmo.a993afcb.png",
+    "128": "icon128.plasmo.9b3294c4.png"
+  },
+  "manifest_version": 3,
+  "action": {
+    "default_icon": {
+      "16": "icon16.plasmo.60403714.png",
+      "32": "icon32.plasmo.8e850565.png",
+      "48": "icon48.plasmo.37989d43.png",
+      "64": "icon64.plasmo.a993afcb.png",
+      "128": "icon128.plasmo.9b3294c4.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "version": "0.4.0",
+  "name": "Bili Chat Exporter Enhanced",
+  "description": "BiliBili 私信导出插件，针对超长聊天记录可支持分段导出。基于Github项目bili-chat-exporter改良。",
+  "permissions": [
+    "storage",
+    "tabs",
+    "downloads"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://message.bilibili.com/*"
+      ],
+      "js": [
+        "html-volume.js",
+        "split-export.js",
+        "content.536b741d.js"
+      ],
+      "css": []
+    }
+  ],
+  "host_permissions": [
+    "https://api.vc.bilibili.com/*",
+    "https://message.bilibili.com/*",
+    "https://*.hdslb.com/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "https://message.bilibili.com/*"
+      ],
+      "resources": [
+        "purify.8cc9e5f3.js",
+        "index.es.0cba9c70.js"
+      ]
+    }
+  ],
+  "version_name": "0.4.0",
+  "background": {
+    "service_worker": "split-download-worker.js"
+  }
+}
